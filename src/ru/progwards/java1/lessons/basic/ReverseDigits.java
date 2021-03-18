@@ -6,8 +6,7 @@ public class ReverseDigits {
         int x2 = number / 10;
         int x3 = x2 % 10;
         int x4 = x2 / 10;
-        int x5 = x1 * 100 + x3 * 10 + x4;
-        return x5;
+        return x1 * 100 + x3 * 10 + x4;
     }
 
     public static void main(String[] args) {
