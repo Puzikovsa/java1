@@ -11,9 +11,10 @@ public class AccuracyDoubleFloat {
         return 4.0f / 3.0f * 3.14f * r * r * r;
     }
     public static double calculateAccuracy(double radius){
-        return volumeBallFloat(6371.2f) - volumeBallDouble(6371.2);
+        return volumeBallDouble(6371.2) - volumeBallFloat(6371.2f);
     }
     public static void main(String[] args) {
+
         System.out.println(calculateAccuracy(6371.2));
     }
 
