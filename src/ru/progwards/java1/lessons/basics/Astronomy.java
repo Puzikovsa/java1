@@ -1,7 +1,6 @@
-package ru.progwards.java1.lessons.basic;
+package ru.progwards.java1.lessons.basics;
 
 public class Astronomy {
-
     public static Double sphereSquare(Double r){
         final double PI = 3.14;
         return 4 * PI * r * r;
@@ -34,3 +33,4 @@ public class Astronomy {
         System.out.println(earthVsJupiter());
     }
 }
+
