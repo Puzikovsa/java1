@@ -43,7 +43,7 @@ public class CyclesGoldenFibo {
                 int a = fiboNumber(i+1);
                 int b = fiboNumber(i+1);
                 int c = fiboNumber(i);
-            if(isGoldenTriangle(a,b,c) == true && fiboNumber(i) <=100){
+            if(isGoldenTriangle(a,b,c) == true && fiboNumber(i +1) <=100){
                 System.out.println("Золотой треугольник с ребром " + a + " и основанием " + c + ".");
             }
             }
