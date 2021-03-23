@@ -40,12 +40,14 @@ public class CyclesGoldenFibo {
             System.out.println(containsDigit(967, 6));
             for (int i = 1; i <=15; i++) {
                 System.out.println(fiboNumber(i));
+            }
+            for (int i = 1; i <=15; i++) {
                 int a = fiboNumber(i+1);
                 int b = fiboNumber(i+1);
                 int c = fiboNumber(i);
             if(isGoldenTriangle(a,b,c) == true && fiboNumber(i +1) <=100){
                 System.out.println("Золотой треугольник с ребром " + a + " и основанием " + c + ".");
-            }
+                }
             }
 
     }
