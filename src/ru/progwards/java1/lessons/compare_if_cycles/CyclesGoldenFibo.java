@@ -26,7 +26,7 @@ public class CyclesGoldenFibo {
         }
             return a3;
     }
-   public static boolean isGoldenTriangle(int a, int b, int c){
+   public static boolean isGoldenTriangle(double a, double b, double c){
         if ((a==b&&a/c>=1.61703&&a/c<=1.61903)||(b==c&&b/a>=1.61703&&b/a<=1.61903)||(a==c&&a/b>=1.61703&&a/b<=1.61903)){
             return true;
         }
@@ -50,7 +50,7 @@ public class CyclesGoldenFibo {
             System.out.println(fiboNumber(13));
             System.out.println(fiboNumber(14));
             System.out.println(fiboNumber(15));
-            System.out.println(isGoldenTriangle(89,89,55));
+            System.out.println(isGoldenTriangle(55.0,55.0,34.0));
         }
 
     }
