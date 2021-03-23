@@ -10,7 +10,7 @@ public class TriangleSimpleInfo {
         return Math.min(d, c);
     }
     public static boolean isEquilateralTriangle(int a, int b, int c){
-        if ( a == b || b == c || a == c){
+        if ( a == b && b == c ){
             return true;
         }
         else return false;
@@ -18,6 +18,6 @@ public class TriangleSimpleInfo {
     public static void main(String[] args) {
         System.out.println(maxSide(2, 2, 3));
         System.out.println(minSide(2,2,3));
-        System.out.println(isEquilateralTriangle(2,2,2));
+        System.out.println(isEquilateralTriangle(2,3,2));
     }
 }

@@ -30,30 +30,24 @@ public class CyclesGoldenFibo {
         double a1 = (int)a;
         double b1 = (int)b;
         double c1 = (int)c;
-        if ((a1==b1&&a1/c1>=1.61703&&a/c1<=1.61903)||(b1==c1&&b1/a1>=1.61703&&b/a1<=1.61903)||(a1==c1&&a1/b1>=1.61703&&a1/b1<=1.61903)){
+        if ((a1==b1&&a1/c1>=1.61703&&a/c1<=1.61903)||(b1==c1&&b1/a1>=1.61703&&b1/a1<=1.61903)||(a1==c1&&a1/b1>=1.61703&&a1/b1<=1.61903)){
             return true;
         }
         else return false;
    }
 
         public static void main (String[]args){
-            System.out.println(containsDigit(967, 8));
-            System.out.println(fiboNumber(1));
-            System.out.println(fiboNumber(2));
-            System.out.println(fiboNumber(3));
-            System.out.println(fiboNumber(4));
-            System.out.println(fiboNumber(5));
-            System.out.println(fiboNumber(6));
-            System.out.println(fiboNumber(7));
-            System.out.println(fiboNumber(8));
-            System.out.println(fiboNumber(9));
-            System.out.println(fiboNumber(10));
-            System.out.println(fiboNumber(11));
-            System.out.println(fiboNumber(12));
-            System.out.println(fiboNumber(13));
-            System.out.println(fiboNumber(14));
-            System.out.println(fiboNumber(15));
-            System.out.println(isGoldenTriangle(55,55,34));
-        }
+            System.out.println(containsDigit(967, 6));
+            for (int i = 1; i <=15; i++) {
+                System.out.println(fiboNumber(i));
+                int a = fiboNumber(i+1);
+                int b = fiboNumber(i+1);
+                int c = fiboNumber(i);
+            if(isGoldenTriangle(a,b,c) == true && fiboNumber(i) <=100){
+                System.out.println("Золотой треугольник с ребром " + a + " и основанием " + c + ".");
+            }
+            }
 
     }
+
+}
