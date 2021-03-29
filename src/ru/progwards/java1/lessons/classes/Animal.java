@@ -11,7 +11,7 @@ public class Animal {
         return AnimalKind.ANIMAL;
     }
     public FoodKind getFoodKind(){
-        return FoodKind.UNKOWN;
+        return FoodKind.UNKNOWN;
     }
     @Override
     public String toString(){
