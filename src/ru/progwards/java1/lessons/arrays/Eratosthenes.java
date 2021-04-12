@@ -16,7 +16,7 @@ public class Eratosthenes {
         sieve[0] = false;
         sieve[1] = false;
                 for (int i = 2; i < N - 1; i++) {
-                for (int j = i + i; j < N - 1; j+=i) {
+                for (int j = i + i; j < N; j+=i) {
                     sieve[j] = false;
                 }
         }
@@ -26,7 +26,7 @@ public class Eratosthenes {
     }
 
     public static void main(String[] args) {
-        Eratosthenes era = new Eratosthenes(20);
-        System.out.println(era.isSimple(19));
+        Eratosthenes era = new Eratosthenes(100);
+        System.out.println(era.isSimple(49));
     }
 }
