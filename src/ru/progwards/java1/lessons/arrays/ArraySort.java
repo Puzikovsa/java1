@@ -17,7 +17,7 @@ public class ArraySort {
     }
 
     public static void main(String[] args) {
-        int[] a = {-4,14,26,-1,0};
+        int[] a = {-2,-16,26,-1,30};
         System.out.println(Arrays.toString(a));
         sort(a);
         System.out.println(Arrays.toString(a));
