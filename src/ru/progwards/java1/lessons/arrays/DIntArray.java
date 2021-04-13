@@ -2,10 +2,10 @@ package ru.progwards.java1.lessons.arrays;
 
 import java.util.Arrays;
 
-public class DlntArray {
+public class DIntArray {
     private int[] array = {12, 25, -4, 6, 0, 15};
 
-    public DlntArray() {
+    public DIntArray() {
 
     }
     public void add(int num){
@@ -32,7 +32,7 @@ public class DlntArray {
 
     public static void main(String[] args) {
 
-        DlntArray d = new DlntArray();
+        DIntArray d = new DIntArray();
         System.out.println("Befor: " + Arrays.toString(d.array));
         d.add(5);
         System.out.println("After: " + Arrays.toString(d.array));
