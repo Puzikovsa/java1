@@ -8,7 +8,7 @@ public class ArraySort {
             for(int j = 0; j < a.length; j++){
                 int per = a[i];
                 int per1 = a[j];
-                if (per > per1){
+                if (per < per1){
                     a[i] = per1;
                     a[j] = per;
                 }
