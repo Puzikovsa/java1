@@ -12,12 +12,13 @@ public class DIntArray {
     public void add(int num){
         if (array == null){
             array = new int[1];
-            array[0] = 0;
+            array[0] = num;
         }
-
-        int[] arrayCopy = Arrays.copyOf(array,array.length +1);
-        arrayCopy[arrayCopy.length - 1] = num;
-        array = arrayCopy;
+        else{
+            int[] arrayCopy = Arrays.copyOf(array,array.length +1);
+            arrayCopy[arrayCopy.length - 1]  = num;
+            array = arrayCopy;
+        }
     }
     public void atInsert(int pos, int num){
         int[] arrayCopy = Arrays.copyOf(array, array.length + 1);
@@ -49,7 +50,7 @@ public class DIntArray {
         System.out.println("After: " + Arrays.toString(d.array));
         d.atDelete(0);
         System.out.println("After: " + Arrays.toString(d.array));
-        d.at(1);
+        d.at(0);
         System.out.println(p);
 
     }
