@@ -4,11 +4,17 @@ import java.util.Arrays;
 
 public class DIntArray {
     private static int p;
-    private int[] array = {12, - 4, 0, 26, 68, -5};
+    private int[] array;
 
     public DIntArray() {
     }
+
     public void add(int num){
+        if (array == null){
+            array = new int[1];
+            array[0] = 0;
+        }
+
         int[] arrayCopy = Arrays.copyOf(array,array.length +1);
         arrayCopy[arrayCopy.length - 1] = num;
         array = arrayCopy;
@@ -39,11 +45,11 @@ public class DIntArray {
         System.out.println("Befor: " + Arrays.toString(d.array));
         d.add(100);
         System.out.println("After: " + Arrays.toString(d.array));
-        d.atInsert(2,100);
+        d.atInsert(1,155);
         System.out.println("After: " + Arrays.toString(d.array));
         d.atDelete(0);
         System.out.println("After: " + Arrays.toString(d.array));
-        d.at(6);
+        d.at(1);
         System.out.println(p);
 
     }
