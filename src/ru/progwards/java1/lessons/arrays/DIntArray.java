@@ -3,6 +3,7 @@ package ru.progwards.java1.lessons.arrays;
 import java.util.Arrays;
 
 public class DIntArray {
+    private static int p;
     private int[] array = {12, - 4, 0, 26, 68, -5};
 
     public DIntArray() {
@@ -24,24 +25,26 @@ public class DIntArray {
         for (int i = pos; i < array.length - 1; i++){
             array[i] = array[i + 1];
         }
-//        array[array.length -1] = 0;
         int[] arrayCopy = Arrays.copyOf(array, array.length - 1);
+        array = arrayCopy;
     }
     public int at(int pos){
-        return array[pos];
+
+        int p = array[pos];
+        return this.p = p;
     }
 
     public static void main(String[] args) {
         DIntArray d = new DIntArray();
         System.out.println("Befor: " + Arrays.toString(d.array));
-        d.add(29);
+        d.add(100);
         System.out.println("After: " + Arrays.toString(d.array));
-        d.atInsert(4,17);
+        d.atInsert(2,100);
         System.out.println("After: " + Arrays.toString(d.array));
-        d.atDelete(3);
+        d.atDelete(0);
         System.out.println("After: " + Arrays.toString(d.array));
-        d.at(4);
-        System.out.println("After: " + Arrays.toString(d.array));
+        d.at(6);
+        System.out.println(p);
 
     }
 }
