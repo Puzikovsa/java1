@@ -45,10 +45,14 @@ public class DIntArray {
         DIntArray d = new DIntArray();
         System.out.println("Befor: " + Arrays.toString(d.array));
         d.add(100);
+        d.add(15);
+        d.add(-16);
+        d.at(2);
+        System.out.println(p);
         System.out.println("After: " + Arrays.toString(d.array));
         d.atInsert(1,155);
         System.out.println("After: " + Arrays.toString(d.array));
-        d.atDelete(0);
+        d.atDelete(1);
         System.out.println("After: " + Arrays.toString(d.array));
         d.at(0);
         System.out.println(p);
