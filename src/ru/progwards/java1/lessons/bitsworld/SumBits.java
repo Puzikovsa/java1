@@ -13,7 +13,7 @@ public class SumBits {
     }
 
     public static void main(String[] args) {
-        System.out.println(sumBits((byte) 0b00110011));
+        System.out.println(sumBits((byte) 0b11111111));
     }
 
 }
