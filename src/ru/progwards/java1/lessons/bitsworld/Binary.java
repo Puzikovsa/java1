@@ -8,13 +8,7 @@ public class Binary {
         this.num = num;
     }
     public String toString(){
-        if(num < 0){
-            binaryNum = 1 + binaryNum;
-        }
-        if(num >= 0){
-            binaryNum = 0 + binaryNum;
-        }
-        for (int i = 0; i <= num; i++){
+        for (int i = 0; i <8; i++){
             int reminder = num & 1;
             binaryNum = binaryNum + reminder;
             num>>>=1;
@@ -23,7 +17,7 @@ public class Binary {
     }
 
     public static void main(String[] args) {
-        Binary after = new Binary((byte) 6);
+        Binary after = new Binary((byte) -5);
         System.out.println(after.toString());
     }
 }
