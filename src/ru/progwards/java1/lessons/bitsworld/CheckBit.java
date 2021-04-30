@@ -10,6 +10,6 @@ public class CheckBit {
     }
 
     public static void main(String[] args) {
-        System.out.println(checkBit((byte) 2, 7));
+        System.out.println(checkBit((byte) -2, 7));
     }
 }
