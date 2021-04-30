@@ -10,14 +10,14 @@ public class Binary {
     public String toString(){
         for (int i = 0; i <8; i++){
             int reminder = num & 1;
-            binaryNum = binaryNum + reminder;
-            num>>>=1;
+            binaryNum = reminder + binaryNum;
+            num>>=1;
         }
         return binaryNum;
     }
 
     public static void main(String[] args) {
-        Binary after = new Binary((byte) -5);
+        Binary after = new Binary((byte) 127);
         System.out.println(after.toString());
     }
 }
