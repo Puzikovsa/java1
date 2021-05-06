@@ -17,7 +17,7 @@ public class Binary {
     }
 
     public static void main(String[] args) {
-        Binary after = new Binary((byte) 127);
+        Binary after = new Binary((byte) 7);
         System.out.println(after.toString());
     }
 }
