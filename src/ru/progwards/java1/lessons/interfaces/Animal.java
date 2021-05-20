@@ -1,8 +1,6 @@
 package ru.progwards.java1.lessons.interfaces;
 
-import ru.progwards.java1.lessons.classes.*;
-
-public class Animal<animal> implements FoodCompare<animal> {
+public class Animal<animal>{
     private double weight;
 
     public Animal(double weight){
@@ -83,8 +81,4 @@ public class Animal<animal> implements FoodCompare<animal> {
                 System.out.println(skruge.compareFoodPrice(bich));
             }
 
-    @Override
-    public int compareFoodPrice(ru.progwards.java1.lessons.classes.Animal aminal) {
-        return 0;
-    }
 }
