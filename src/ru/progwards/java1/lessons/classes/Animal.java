@@ -1,8 +1,6 @@
 package ru.progwards.java1.lessons.classes;
 
-import ru.progwards.java1.lessons.interfaces.FoodCompare;
-
-public class Animal<animal> implements FoodCompare{
+public class Animal<animal> implements FoodCompare<animal> {
     private double weight;
 
     public Animal(double weight){
@@ -59,15 +57,12 @@ public class Animal<animal> implements FoodCompare{
         public double getFoodPrice() {
             return calculateFoodWeight() * getFood1kgPrice();
         }
+
     @Override
-    public int compareFoodPrice(Animal animal) {
-        return 0;
+    public int compareFoodPrice(Animal aminal){
+    return Double.compare(this.getFoodPrice(),aminal.getFoodPrice());
+
     }
-//    //сравнение цен на еду для разных животных
-//    public int compareFoodPrice(Animal aminal){
-//    return Double.compare(aminal,Animal.this);
-//
-//    }
 
             public static void main (String[]args){
                 Animal dog = new Animal(20.0);
@@ -80,15 +75,9 @@ public class Animal<animal> implements FoodCompare{
                 System.out.println(cat.equals(dog));
                 System.out.println(bich.equals(skruge));
                 System.out.println(skruge.toStringFull());
+                System.out.println(bich.toStringFull());
                 System.out.println(skruge.getFoodPrice());
+                System.out.println(bich.getFoodPrice());
+                System.out.println(skruge.compareFoodPrice(bich));
             }
-
-
 }
-
-
-//    @Override
-//    public int compareFoodPrice() {
-//        return 0;
-//    }
-//}
