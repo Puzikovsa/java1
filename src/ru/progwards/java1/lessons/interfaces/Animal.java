@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.interfaces;
 
-public class Animal implements FoodCompare{
+public class Animal implements FoodCompare, CompareWeight{
     private double weight;
 
     public Animal(double weight){
@@ -81,4 +81,8 @@ public class Animal implements FoodCompare{
                 System.out.println(skruge.compareFoodPrice(bich));
             }
 
+    @Override
+    public CompareResult compareWeight(CompareWeight smthHasWeigt) {
+        return null;
+    }
 }
