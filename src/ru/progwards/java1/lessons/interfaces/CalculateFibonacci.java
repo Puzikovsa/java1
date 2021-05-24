@@ -33,7 +33,9 @@ public class CalculateFibonacci {
         }
 
     public static void main(String[] args) {
-        LastFibo = new CacheInfo();
+        if (getLastFibo() == null){
+            LastFibo = new CacheInfo();
+        }
         System.out.println(LastFibo);
         System.out.println(fiboNumber(13));
         System.out.println(fiboNumber(13));
