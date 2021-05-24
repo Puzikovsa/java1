@@ -1,6 +1,8 @@
 package ru.progwards.java1.lessons.interfaces;
 
 public interface CompareWeight {
+    double getWeight();
+
     public enum CompareResult {
         LESS,
         EQUAL,

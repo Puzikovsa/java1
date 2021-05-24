@@ -61,11 +61,17 @@ public class Animal implements FoodCompare, CompareWeight{
     @Override
     public int compareFoodPrice(Animal animal){
     return Double.compare(this.getFoodPrice(),animal.getFoodPrice());
+    }
 
+    @Override
+    public CompareResult compareWeight(CompareWeight smthHasWeigt) {
+        if (getWeight() < smthHasWeigt.getWeight()) return CompareResult.LESS;
+        else if (getWeight() == smthHasWeigt.getWeight()) return CompareResult.EQUAL;
+        else return CompareResult.GREATER;
     }
 
             public static void main (String[]args){
-                Animal dog = new Animal(20.0);
+                Animal dog = new Animal(25.0);
                 Hamster bich = new Hamster(20.0);
                 Duck skruge = new Duck(20.0);
                 Animal cat = new Animal(20.0);
@@ -79,10 +85,7 @@ public class Animal implements FoodCompare, CompareWeight{
                 System.out.println(skruge.getFoodPrice());
                 System.out.println(bich.getFoodPrice());
                 System.out.println(skruge.compareFoodPrice(bich));
+                System.out.println(skruge.compareWeight(bich));
             }
 
-    @Override
-    public CompareResult compareWeight(CompareWeight smthHasWeigt) {
-        return null;
-    }
 }

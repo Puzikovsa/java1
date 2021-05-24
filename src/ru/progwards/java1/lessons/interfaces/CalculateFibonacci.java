@@ -35,14 +35,11 @@ public class CalculateFibonacci {
     public static void main(String[] args) {
         LastFibo = new CacheInfo();
         System.out.println(LastFibo);
+        System.out.println(fiboNumber(13));
+        System.out.println(fiboNumber(13));
         System.out.println(fiboNumber(5));
-        System.out.println(fiboNumber(12));
-        System.out.println(fiboNumber(7));
         System.out.println(getLastFibo());
-        clearLastFibo();
-        System.out.println(getLastFibo());
-        LastFibo = new CacheInfo();
-        System.out.println(fiboNumber(15));
+
     }
 }
 
