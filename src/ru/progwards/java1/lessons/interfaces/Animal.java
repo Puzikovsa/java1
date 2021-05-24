@@ -65,14 +65,15 @@ public class Animal implements FoodCompare, CompareWeight{
 
     @Override
     public CompareResult compareWeight(CompareWeight smthHasWeigt) {
-        if (getWeight() < smthHasWeigt.getWeight()) return CompareResult.LESS;
-        else if (getWeight() == smthHasWeigt.getWeight()) return CompareResult.EQUAL;
+        Animal prm = (Animal) smthHasWeigt;
+        if (getWeight() < ((Animal) smthHasWeigt).getWeight()) return CompareResult.LESS;
+        else if (getWeight() == ((Animal) smthHasWeigt).getWeight()) return CompareResult.EQUAL;
         else return CompareResult.GREATER;
     }
 
             public static void main (String[]args){
                 Animal dog = new Animal(25.0);
-                Hamster bich = new Hamster(20.0);
+                Hamster bich = new Hamster(26.0);
                 Duck skruge = new Duck(20.0);
                 Animal cat = new Animal(20.0);
                 System.out.println(cat.toString());
