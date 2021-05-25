@@ -6,6 +6,9 @@ public class CalculateFibonacci {
 
 
     public static int fiboNumber(int n) {
+        if (getLastFibo() == null) {
+            LastFibo = new CacheInfo();
+        }
         if (n == LastFibo.n) return LastFibo.fibo;
         else {
             int a1 = 1;
@@ -20,10 +23,10 @@ public class CalculateFibonacci {
             return a3;
         }
     }
-
             public static class CacheInfo {
                 public int n;
                 public int fibo;
+
             }
 
         public static CacheInfo getLastFibo(){
@@ -34,14 +37,12 @@ public class CalculateFibonacci {
         }
 
     public static void main(String[] args) {
-        if (getLastFibo() == null){
-            LastFibo = new CacheInfo();
-        }
         System.out.println(LastFibo);
         System.out.println(fiboNumber(13));
         System.out.println(fiboNumber(15));
         System.out.println(fiboNumber(5));
         System.out.println(getLastFibo());
+        System.out.println(LastFibo.fibo);
 
     }
 }
