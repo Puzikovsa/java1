@@ -2,21 +2,22 @@ package ru.progwards.java1.lessons.interfaces;
 
 import java.util.Arrays;
 
-public class Food implements CompareWeight{
+public class Food implements CompareWeight {
     private int weight;
 
     public Food(int weight) {
         this.weight = weight;
     }
-    public int getWeight(){
+
+    public int getWeight() {
         return weight;
     }
 
     @Override
     public CompareResult compareWeight(CompareWeight smthHasWeigt) {
         Food prm = (Food) smthHasWeigt;
-        if(getWeight() < ((Food) smthHasWeigt).getWeight()) return CompareResult.LESS;
-        else if(getWeight() > ((Food) smthHasWeigt).getWeight()) return CompareResult.GREATER;
+        if (getWeight() < ((Food) smthHasWeigt).getWeight()) return CompareResult.LESS;
+        else if (getWeight() > ((Food) smthHasWeigt).getWeight()) return CompareResult.GREATER;
         else return CompareResult.EQUAL;
     }
 

@@ -24,18 +24,20 @@ public class CalculateFibonacci {
             return LastFibo.fibo;
         }
     }
-            public static class CacheInfo {
-                public int n;
-                public int fibo;
 
-            }
+    public static class CacheInfo {
+        public int n;
+        public int fibo;
 
-        public static CacheInfo getLastFibo(){
-                    return LastFibo;
-        }
-        public static void clearLastFibo(){
-            CalculateFibonacci.LastFibo = null;
-        }
+    }
+
+    public static CacheInfo getLastFibo() {
+        return LastFibo;
+    }
+
+    public static void clearLastFibo() {
+        CalculateFibonacci.LastFibo = null;
+    }
 
     public static void main(String[] args) {
         System.out.println(LastFibo);

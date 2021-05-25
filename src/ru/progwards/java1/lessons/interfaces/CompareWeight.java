@@ -7,5 +7,6 @@ public interface CompareWeight {
         EQUAL,
         GREATER,
     }
+
     public CompareResult compareWeight(CompareWeight smthHasWeigt);
 }
