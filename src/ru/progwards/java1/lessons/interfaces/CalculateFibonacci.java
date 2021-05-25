@@ -20,7 +20,8 @@ public class CalculateFibonacci {
                 a2 = a3;
             }
             LastFibo.fibo = a3;
-            return a3;
+            LastFibo.n = n;
+            return LastFibo.fibo;
         }
     }
             public static class CacheInfo {
@@ -40,7 +41,7 @@ public class CalculateFibonacci {
         System.out.println(LastFibo);
         System.out.println(fiboNumber(13));
         System.out.println(fiboNumber(15));
-        System.out.println(fiboNumber(5));
+        System.out.println(fiboNumber(1));
         System.out.println(getLastFibo());
         System.out.println(LastFibo.fibo);
 
