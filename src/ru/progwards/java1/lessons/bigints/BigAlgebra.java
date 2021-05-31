@@ -1,4 +1,4 @@
-package ru.progwards.java1.lessons.bigunts;
+package ru.progwards.java1.lessons.bigints;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
