@@ -38,7 +38,6 @@ public class ArraySort {
         Cow burenka = new Cow(150.2);
         CompareWeight[] animals = {bird, ivanich, skruge, burenka};
         System.out.println(animals.toString());
-        System.out.println(Arrays.stream(animals).sorted());
         sort(animals);
         System.out.println(Arrays.toString(animals));
     }
