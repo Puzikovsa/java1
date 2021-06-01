@@ -19,8 +19,8 @@ public abstract class AbsInteger {
     }
 
     public static void main(String[] args) {
-        ByteInteger num1 = new ByteInteger((byte) 25);
-        IntInteger num2 = new IntInteger(2567);
+        ByteInteger num1 = new ByteInteger((byte) -25);
+        ShortInteger num2 = new ShortInteger((short) 2527);
         System.out.println(add(num1,num2));
     }
 }

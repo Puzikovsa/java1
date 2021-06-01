@@ -1,22 +1,22 @@
 package ru.progwards.java1.lessons.bigints;
 
 public class ShortInteger extends AbsInteger{
-    Short shi;
-    String shi1;
+    Short shortInt;
+    String shortString1;
 
-    ShortInteger(short shi){
-        this.shi = shi;
+    ShortInteger(short shortInt){
+        this.shortInt = shortInt;
     }
 
     @Override
     public int getNumber() {
-        return 0;
+        return shortInt;
     }
 
     @Override
     public String toString(){
-        shi1 = Short.toString(shi);
-        return shi1;
+        shortString1 = Short.toString(shortInt);
+        return shortString1;
     }
 
     public static void main(String[] args) {
