@@ -40,9 +40,9 @@ public class ArrayInteger {
 
     }
 
-//        boolean add(ArrayInteger num){
-//
-//    }
+        boolean add(ArrayInteger num){
+        return false;
+    }
     public static void main(String[] args) {
         BigInteger num1 = new BigInteger("25157631");
         System.out.println(num1);
@@ -51,5 +51,6 @@ public class ArrayInteger {
         ArrayInteger mas1 = new ArrayInteger(8);
         mas1.fromInt(num1);
         System.out.println(mas1.toInt());
+        BigInteger num2 = new BigInteger("4567");
     }
 }
