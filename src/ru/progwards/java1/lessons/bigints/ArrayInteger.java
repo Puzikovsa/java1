@@ -6,10 +6,7 @@ import java.util.Arrays;
 public class ArrayInteger {
     byte[] digits;
     int n;
-    BigInteger bigInteger;
-    BigInteger bigInteger1;
-    BigInteger bigInteger2;
-    BigInteger bigIntegerresalt;
+
 
     ArrayInteger(int n) {
         this.n = n;
@@ -17,7 +14,8 @@ public class ArrayInteger {
     }
 
     void fromInt(BigInteger value) {
-        for (int i = 0; i <= n-1; i++){
+        BigInteger bigInteger;
+        for (int i = 0; i <= n - 1; i++) {
             bigInteger = value.remainder(BigInteger.TEN);
             byte num = bigInteger.byteValue();
             digits[i] = num;
@@ -28,21 +26,21 @@ public class ArrayInteger {
     }
 
 
-        BigInteger toInt(){
+    BigInteger toInt() {
+        BigInteger bigInteger1;
+        BigInteger bigIntegerResalt = BigInteger.ZERO;
         for (int i = n - 1; i >= 0; i--) {
             int num1 = digits[i];
-            bigInteger1 = new BigInteger(Integer.toString(num1));
-            bigInteger2 = bigInteger1.multiply(BigInteger.TEN);
-
-////            for (int j = i + 1; j <= n - 2; j++){
-////                int num2 = digits[j];
-////                bigInteger2 = new BigInteger(Integer.toString(num2));
-//            }
-          }
-        return bigInteger2;
+            int degry = (int) Math.pow(10, i);
+            int numResult = num1 * degry;
+            bigInteger1 = BigInteger.valueOf(numResult);
+            bigIntegerResalt = bigIntegerResalt.add(bigInteger1);
+        }
+        return bigIntegerResalt;
 
     }
-//    boolean add(ArrayInteger num){
+
+//        boolean add(ArrayInteger num){
 //
 //    }
     public static void main(String[] args) {
