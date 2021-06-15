@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class LineCount {
 
-    public static int calcEmpty(String fileName) throws IOException {
+    public static int calcEmpty(String fileName){
         int count = 0;
         try {
             FileReader readFile = new FileReader(fileName);
@@ -19,12 +19,12 @@ public class LineCount {
                 }
             }
         } catch (IOException e) {
-            throw new IOException("-1");
+            return -1;
         }
         return count;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         System.out.println(calcEmpty("src/ru/progwards/java1/lessons/io1/text.txt"));
     }
 }
