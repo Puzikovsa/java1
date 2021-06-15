@@ -10,27 +10,22 @@ public class LineCount {
         int count = 0;
         try {
             FileReader readFile = new FileReader(fileName);
-            Scanner scan = new Scanner(readFile);
-            try {
+            try (readFile; Scanner scan = new Scanner(readFile)) {
                 while (scan.hasNextLine()) {
                     String str = scan.nextLine();
-                    if (str == "") {
+                    if (str.equals("")) {
                         count++;
                     }
                 }
-            } finally {
-                scan.close();
-                readFile.close();
             }
         } catch (IOException e) {
-            e.getMessage();
-            return -1;
+            throw new IOException("-1");
         }
         return count;
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println(calcEmpty("src/ru/progwards/java1/lessons/io1/text.tx"));
+        System.out.println(calcEmpty("src/ru/progwards/java1/lessons/io1/text.txt"));
     }
 }
 
