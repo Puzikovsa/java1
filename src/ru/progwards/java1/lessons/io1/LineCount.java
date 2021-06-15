@@ -18,14 +18,21 @@ public class LineCount {
                     }
                 }
             }
-        } catch (IOException e) {
+            finally {
+                {
+                    readFile.close();
+                }
+
+            }
+        }
+        catch (IOException e) {
             return -1;
         }
         return count;
     }
 
     public static void main(String[] args) {
-        System.out.println(calcEmpty("src/ru/progwards/java1/lessons/io1/text.txt"));
+        System.out.println(calcEmpty("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\logfile.txt"));
     }
 }
 
