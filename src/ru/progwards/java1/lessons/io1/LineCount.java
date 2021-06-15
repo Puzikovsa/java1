@@ -30,7 +30,7 @@ public class LineCount {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println(calcEmpty("src/ru/progwards/java1/lessons/io1/text."));
+        System.out.println(calcEmpty("src/ru/progwards/java1/lessons/io1/text.tx"));
     }
 }
 
