@@ -23,13 +23,13 @@ public class LineCount {
                 readFile.close();
             }
         } catch (IOException e) {
-            throw new IOException("-1");
+            throw new IOException(String.valueOf(-1));
         }
         return count;
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println(calcEmpty("src/ru/progwards/java1/lessons/io1/text.txt"));
+        System.out.println(calcEmpty(""));
     }
 }
 
