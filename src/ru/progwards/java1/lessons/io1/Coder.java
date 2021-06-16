@@ -11,9 +11,9 @@ public class Coder {
 
             try (FileWriter writer = new FileWriter(outFileName)) {
                 for (int ch; (ch = reader.read()) >= 0; ) {
-                    for (int i = 0; i < code.length; i++){
-                        if (code[i] == (char) ch){
-                            Object symbol = null;
+                    for (int i = code.length - 1; i >= 0; i--){
+                        if (ch == code[i]){
+                            Object symbol = ch;
                             ch = code[(int)symbol];
                         }
                     }
