@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class Coder {
-    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
+    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException, FileNotFoundException {
         Arrays.sort(code);
         try {
             FileReader reader = new FileReader(inFileName);
@@ -21,7 +21,7 @@ public class Coder {
             } finally {
                 writer.close();
             }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             FileWriter except = new FileWriter(logName);
             except.write(e.getMessage());
             except.close();
