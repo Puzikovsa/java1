@@ -1,37 +1,32 @@
 package ru.progwards.java1.lessons.io1;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Coder {
-    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
+    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
+        Arrays.sort(code);
         try {
             FileReader reader = new FileReader(inFileName);
-
             try (FileWriter writer = new FileWriter(outFileName)) {
                 for (int ch; (ch = reader.read()) >= 0; ) {
-                    for (int i = code.length - 1; i >= 0; i--){
-                        if (ch == code[i]){
-                            Object symbol = ch;
-                            ch = code[(int)symbol];
-                        }
-                    }
+                    ch = Arrays.binarySearch(code, (char) ch);
                     writer.write(ch);
                 }
-            }
-            catch (NullPointerException e){
-                e.getMessage();
-            }
 
-        } catch (IOException e) {
+            }
+            } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
+
 
 //    public static void main(String[] args) {
 //        codeFile("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\File.txt", "test.txt");
 //    }
 //
 
-}
+        }
