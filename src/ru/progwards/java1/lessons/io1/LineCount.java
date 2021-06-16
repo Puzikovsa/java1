@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class LineCount {
 
-    public static int calcEmpty(String fileName){
+    public static int calcEmpty(String fileName) {
         int count = 0;
         try {
             FileReader readFile = new FileReader(fileName);
@@ -17,15 +17,12 @@ public class LineCount {
                         count++;
                     }
                 }
-            }
-            finally {
+            } finally {
                 {
                     readFile.close();
                 }
-
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             return -1;
         }
         return count;
