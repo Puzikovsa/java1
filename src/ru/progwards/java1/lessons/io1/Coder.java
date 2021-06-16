@@ -16,6 +16,9 @@ public class Coder {
                     writer.write(ch);
                 }
             }
+            catch (NullPointerException e){
+                e.getMessage();
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
