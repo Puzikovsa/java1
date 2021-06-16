@@ -11,15 +11,20 @@ public class Coder {
         Arrays.sort(code);
         try {
             FileReader reader = new FileReader(inFileName);
-            try (FileWriter writer = new FileWriter(outFileName)) {
+            FileWriter writer = new FileWriter(outFileName);
+            try {
                 for (int ch; (ch = reader.read()) >= 0; ) {
                     ch = Arrays.binarySearch(code, (char) ch);
                     writer.write(ch);
                 }
 
+            } finally {
+                writer.close();
             }
-            } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            FileWriter except = new FileWriter(logName);
+            except.write(e.getMessage());
+            except.close();
         }
     }
 
