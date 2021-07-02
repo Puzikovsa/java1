@@ -8,14 +8,14 @@ import java.util.Arrays;
 
 public class Coder {
 
-    public static void codeFile(String inFileName, String outFileName, char[] code/*, String logName*/) {
+    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
         try {
             String strFinal = "";
             FileReader reader = new FileReader(inFileName);
 
             try (reader;
                  Scanner scanner = new Scanner(reader);
-                 FileWriter writeResult = new FileWriter(outFileName)) {
+                 FileWriter writeResult = new FileWriter(outFileName)){
                 while (scanner.hasNextLine()) {
 
                     String str = scanner.nextLine();
@@ -27,15 +27,16 @@ public class Coder {
                 writeResult.write(result);
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            FileWriter message = new FileWriter(logName);
+            message.write(e.getMessage());
         }
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String nstring = "Все это достаточно тяжело запомнить, потому что трудно себе это представить";
         char[] code = nstring.toCharArray();
-        codeFile("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\File.txt", "text.txt", code);
+        codeFile("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\File.txt", "text.txt", code, "log.txt");
 
     }
 }
