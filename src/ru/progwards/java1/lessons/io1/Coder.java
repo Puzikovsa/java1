@@ -32,7 +32,7 @@ public class Coder {
         catch (IOException e) {
             FileWriter writeException = new FileWriter(logName);
             writeException.write(e.getMessage());
-            throw new IOException();
+            throw new IOException(e.getMessage());
 
         }
 
