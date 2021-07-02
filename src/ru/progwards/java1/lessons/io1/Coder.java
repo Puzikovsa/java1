@@ -15,20 +15,25 @@ public class Coder {
 
             try (reader;
                  Scanner scanner = new Scanner(reader);
-                 FileWriter writeResult = new FileWriter(outFileName)){
+                 FileWriter writeResult = new FileWriter(outFileName)) {
                 while (scanner.hasNextLine()) {
 
                     String str = scanner.nextLine();
                     strFinal = strFinal + str;
+
                 }
 
                 char[] result = strFinal.toCharArray();
-                System.arraycopy(code, 0, result, 0, result.length - 1 + 1);
+                System.arraycopy(code, 0, result, 0, result.length);
                 writeResult.write(result);
             }
-        } catch (IOException e) {
-            FileWriter message = new FileWriter(logName);
-            message.write(e.getMessage());
+
+        }
+        catch (IOException e) {
+            FileWriter writeException = new FileWriter(logName);
+            writeException.write(e.getMessage());
+            throw new IOException();
+
         }
 
     }
