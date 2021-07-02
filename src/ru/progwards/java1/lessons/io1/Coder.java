@@ -18,7 +18,8 @@ public class Coder {
                  FileWriter writeResult = new FileWriter(outFileName)) {
                 while (scanner.hasNextLine()) {
 
-                    strFinal = scanner.nextLine();
+                    String str = scanner.nextLine();
+                    strFinal = strFinal + str;
                 }
 
                 char[] result = strFinal.toCharArray();
