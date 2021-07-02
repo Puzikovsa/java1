@@ -1,37 +1,40 @@
 package ru.progwards.java1.lessons.io1;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.Arrays;
 
 public class Coder {
-    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException, FileNotFoundException {
-        Arrays.sort(code);
+
+    public static void codeFile(String inFileName, String outFileName, char[] code/*, String logName*/) {
         try {
+            String strFinal = "";
             FileReader reader = new FileReader(inFileName);
-            FileWriter writer = new FileWriter(outFileName);
-            try {
-                for (int ch; (ch = reader.read()) >= 0; ) {
-                    ch = Arrays.binarySearch(code, (char) ch);
-                    writer.write(ch);
+
+            try (reader;
+                 Scanner scanner = new Scanner(reader);
+                 FileWriter writeResult = new FileWriter(outFileName)) {
+                while (scanner.hasNextLine()) {
+
+                    strFinal = scanner.nextLine();
                 }
 
-            } finally {
-                writer.close();
+                char[] result = strFinal.toCharArray();
+                System.arraycopy(code, 0, result, 0, result.length - 1 + 1);
+                writeResult.write(result);
             }
         } catch (IOException e) {
-            FileWriter except = new FileWriter(logName);
-            except.write(e.getMessage());
-            except.close();
+            System.out.println(e.getMessage());
         }
+
     }
 
+    public static void main(String[] args) {
+        String nstring = "Все это достаточно тяжело запомнить, потому что трудно себе это представить";
+        char[] code = nstring.toCharArray();
+        codeFile("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\File.txt", "text.txt", code);
 
-//    public static void main(String[] args) {
-//        codeFile("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\File.txt", "test.txt");
-//    }
-//
-
-        }
+    }
+}
