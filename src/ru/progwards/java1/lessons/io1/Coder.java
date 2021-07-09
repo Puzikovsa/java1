@@ -29,13 +29,16 @@ public class Coder {
             }
 
         }
-        catch (IOException e) {
-            FileWriter writeException = new FileWriter(logName);
-            writeException.write(e.getMessage());
-            throw new IOException(e.getMessage());
+        catch (IOException | ArrayIndexOutOfBoundsException e) {
+            writeToLog(logName, e.getMessage());
 
         }
 
+    }
+
+    private static void writeToLog(String logName, String message) throws IOException {
+        FileWriter log = new FileWriter(logName, true);
+        log.close();
     }
 
     public static void main(String[] args) throws IOException {
