@@ -4,16 +4,18 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Coder {
 
     public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
         try {
+            // читаем файл inFilename
             StringBuilder strFinal = new StringBuilder();
             FileReader reader = new FileReader(inFileName);
 
-            try (reader;
+            try (
+                    // создаем новый FileWriter
+                    // reader;
                  Scanner scanner = new Scanner(reader);
                  FileWriter writeResult = new FileWriter(outFileName)) {
                 while (scanner.hasNextLine()) {
@@ -22,12 +24,13 @@ public class Coder {
                     strFinal.append(str);
 
                 }
-
+                //  копируем прочитанную строку с помощью массива code
                 char[] result = strFinal.toString().toCharArray();
                 System.arraycopy(code, 0, result, 0, result.length);
+                // записываем результат в writeResult
                 writeResult.write(result);
             }
-
+                // при ошибке записываем сообщение об ошибке в logName с помощью метода writeToLog
         } catch (IOException | ArrayIndexOutOfBoundsException e) {
             writeToLog(logName, e.getMessage());
         }
