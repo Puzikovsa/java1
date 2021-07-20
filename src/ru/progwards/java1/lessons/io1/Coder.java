@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Coder {
 
-    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
+    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
         try {
             String strFinal = "";
             FileReader reader = new FileReader(inFileName);
@@ -28,23 +28,34 @@ public class Coder {
                 writeResult.write(result);
             }
 
-        }
-        catch (IOException | ArrayIndexOutOfBoundsException e) {
+        } catch (IOException | ArrayIndexOutOfBoundsException e) {
             writeToLog(logName, e.getMessage());
+        }
 
         }
 
-    }
 
-    private static void writeToLog(String logName, String message) throws IOException {
-        FileWriter log = new FileWriter(logName, true);
-        log.close();
+    public static void writeToLog(String logName, String message) {
+        FileWriter log = null;
+        try {
+            log = new FileWriter(logName, true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                log.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) throws IOException {
         String nstring = "Все это достаточно тяжело запомнить, потому что трудно себе это представить";
         char[] code = nstring.toCharArray();
         codeFile("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\File.txt", "text.txt", code, "log.txt");
+        System.out.println("Программа закончила работу.");
 
     }
 }
