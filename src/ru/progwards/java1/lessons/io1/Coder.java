@@ -52,7 +52,7 @@ public class Coder {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         String nstring = "Все это достаточно тяжело запомнить, потому что трудно себе это представить";
         char[] code = nstring.toCharArray();
         codeFile("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\File.txt", "text.txt", code, "log.txt");
