@@ -10,7 +10,7 @@ public class Coder {
 
     public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
         try {
-            String strFinal = "";
+            StringBuilder strFinal = new StringBuilder();
             FileReader reader = new FileReader(inFileName);
 
             try (reader;
@@ -19,11 +19,11 @@ public class Coder {
                 while (scanner.hasNextLine()) {
 
                     String str = scanner.nextLine();
-                    strFinal = strFinal + str;
+                    strFinal.append(str);
 
                 }
 
-                char[] result = strFinal.toCharArray();
+                char[] result = strFinal.toString().toCharArray();
                 System.arraycopy(code, 0, result, 0, result.length);
                 writeResult.write(result);
             }
@@ -44,6 +44,7 @@ public class Coder {
         }
         finally {
             try {
+                assert log != null;
                 log.close();
             } catch (IOException e) {
                 e.printStackTrace();
