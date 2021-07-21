@@ -18,7 +18,7 @@ public class Coder {
                 FileWriter writeResult = new FileWriter(outFileName)) {
                 try {
                     for (int ch; (ch = reader.read())>= 0;){
-                        writeResult.write(ch);
+                        writeResult.write(code[ch]);
                     }
                 }
                 finally {
@@ -49,8 +49,7 @@ public class Coder {
 
 
         public static void main (String[]args){
-            String nstring = "Все это достаточно тяжело запомнить, потому что трудно себе это представить";
-            char[] code = nstring.toCharArray();
+            char[] code = new char[256];
             codeFile("C:\\Users\\puzik\\IdeaProjects\\Testing_lesson_10\\File.txt", "text.txt", code, "log.txt");
             System.out.println("Программа закончила работу.");
 
