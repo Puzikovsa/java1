@@ -13,7 +13,7 @@ public class PhoneNumber {
                 resultNum.append(c);
         if (resultNum.length() >= 10 & resultNum.length() <= 11) {
             phoneNum = resultNum.toString();
-            phoneNum = "+7" + phoneNum.substring(1);
+            phoneNum = "+7(" + phoneNum.substring(1,4) + ")" + phoneNum.substring(4,7) + "-" + phoneNum.substring(7);
         } else throw new Exception();
 
         return phoneNum;
