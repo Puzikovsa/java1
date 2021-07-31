@@ -14,12 +14,12 @@ public class PhoneNumber {
         if (resultNum.length() >= 10 & resultNum.length() <= 11) {
             phoneNum = resultNum.toString();
             phoneNum = "+7(" + phoneNum.substring(1,4) + ")" + phoneNum.substring(4,7) + "-" + phoneNum.substring(7);
-        } else throw new Exception();
+        } else throw new Exception("неправильно введен номер");
 
         return phoneNum;
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println(format("+8(924) 265 45 - 54"));
+        System.out.println(format("+8569(24) 265 45"));
     }
 }
