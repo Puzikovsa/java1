@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.io2;
 
-import java.util.Arrays;
-
 public class Translator {
     private final String[] inLang;
     private final String[] outLang;
@@ -26,21 +24,23 @@ public class Translator {
             items[i] = str1.toString();
         }
 //        заменяем слова из sentence на слова из out
+        String str2 = "";
         for (String item : items) {
-            for (int i = 0; i < inLang.length; i++)
-                if (item.equalsIgnoreCase(inLang[i])) {
-                    words.append(outLang[i]).append(" ");
+            for (int j = 0; j < inLang.length; j++) {
+                if (inLang[j].equalsIgnoreCase(item)) {
+                    words.append(outLang[j]).append(" ");
                     break;
-                } else {
-                    words.append(item).append(" ");
-                    break;
+//                } else {
+//                    words.append(items[i]).append(" ");
+//                    break;
                 }
+            }
         }
         return words.toString();
     }
 
     public static void main(String[] args) {
-        Translator big = new Translator(new String[]{"world", "hello"}, new String[]{"мир", "привет"});
-        System.out.println(big.translate("World! Molly, Hello!"));
+        Translator big = new Translator(new String[]{"world", "hello", "important", "easy"}, new String[]{"мир", "привет", "важно", "легко"});
+        System.out.println(big.translate("World! Molly, Hello!, world"));
     }
 }
