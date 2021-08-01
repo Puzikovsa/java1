@@ -24,15 +24,10 @@ public class Translator {
             items[i] = str1.toString();
         }
 //        заменяем слова из sentence на слова из out
-        String str2 = "";
         for (String item : items) {
             for (int j = 0; j < inLang.length; j++) {
                 if (inLang[j].equalsIgnoreCase(item)) {
                     words.append(outLang[j]).append(" ");
-                    break;
-//                } else {
-//                    words.append(items[i]).append(" ");
-//                    break;
                 }
             }
         }
