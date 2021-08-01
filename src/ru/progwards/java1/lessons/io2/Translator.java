@@ -27,14 +27,14 @@ public class Translator {
         }
 //        заменяем слова из sentence на слова из out
         for (String item : items) {
-            for (int i = 0; i < inLang.length; i++) {
+            for (int i = 0; i < inLang.length; i++)
                 if (item.equalsIgnoreCase(inLang[i])) {
-                    words.append(outLang[i]);
+                    words.append(outLang[i]).append(" ");
+                    break;
                 } else {
-                    words.append(item);
+                    words.append(item).append(" ");
+                    break;
                 }
-            }
-            words.append(" ");
         }
         return words.toString();
     }
