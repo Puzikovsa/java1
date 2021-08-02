@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.io2;
 
+import java.util.Locale;
+
 public class Translator {
     private final String[] inLang;
     private final String[] outLang;
@@ -10,32 +12,21 @@ public class Translator {
     }
 
     public String translate(String sentence) {
-        StringBuilder words = new StringBuilder();
-//        разбиваем sentence на массив строк
-        String[] items = sentence.split(" ");
-//        убираем пунктуацию(оставляем в массиве только буквы
-        for (int i = 0; i < items.length; i++) {
-            StringBuilder str1 = new StringBuilder();
-            for (char c : items[i].toCharArray()) {
-                if (Character.isLetter(c)) {
-                    str1.append(c);
-                }
-            }
-            items[i] = str1.toString();
-        }
-//        заменяем слова из sentence на слова из out
-        for (String item : items) {
-            for (int j = 0; j < inLang.length; j++) {
-                if (inLang[j].equalsIgnoreCase(item)) {
-                    words.append(outLang[j]).append(" ");
-                }
+
+        String str = sentence.toLowerCase(Locale.ROOT);
+        StringBuilder stringTranslate = new StringBuilder(str);
+        for (int i = 0; i < inLang.length; i++) {
+            int on = stringTranslate.indexOf(inLang[i]);
+            if (on != -1) {
+                stringTranslate.delete(on, on + inLang[i].length());
+                stringTranslate.insert(on, outLang[i]);
             }
         }
-        return words.toString();
-    }
+            return stringTranslate.toString();
+        }
 
     public static void main(String[] args) {
         Translator big = new Translator(new String[]{"world", "hello", "important", "easy"}, new String[]{"мир", "привет", "важно", "легко"});
-        System.out.println(big.translate("World! Molly, Hello!, world"));
+        System.out.println(big.translate("Hello! Molly, World!"));
     }
 }
