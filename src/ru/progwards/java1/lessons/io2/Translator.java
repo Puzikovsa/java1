@@ -1,6 +1,5 @@
 package ru.progwards.java1.lessons.io2;
 
-import java.util.Arrays;
 import java.util.Locale;
 
 public class Translator {
@@ -35,9 +34,8 @@ public class Translator {
                 String str1 = photoTranslate[j];
                 String newStr1 = str1.replace(str1.charAt(0), c);
                 photoTranslate[j] = newStr1;
-                strTranslate.append(photoTranslate[j]);
             }
-            else strTranslate.append(photoTranslate[j]);
+            strTranslate.append(photoTranslate[j]).append(" ");
         }
 
         return strTranslate.toString();
