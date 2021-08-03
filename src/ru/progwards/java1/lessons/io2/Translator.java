@@ -24,27 +24,27 @@ public class Translator {
             }
         }
         String[] photo = sentence.split(" ");
-        System.out.println(Arrays.toString(photo));
         String result = stringTranslate.toString();
-        System.out.println(result);
         String[] photoTranslate = result.split(" ");
-        System.out.println(Arrays.toString(photoTranslate));
+        StringBuilder strTranslate = new StringBuilder();
 
         for (int j = 0; j < photo.length; j++) {
             boolean up = Character.isUpperCase(photo[j].charAt(0));
             if (up) {
                 char c = Character.toUpperCase(photoTranslate[j].charAt(0));
-                String str1 = photoTranslate[j].toString();
-                System.out.println(str1);
+                String str1 = photoTranslate[j];
+                String newStr1 = str1.replace(str1.charAt(0), c);
+                photoTranslate[j] = newStr1;
+                strTranslate.append(photoTranslate[j]);
             }
-
+            else strTranslate.append(photoTranslate[j]);
         }
 
-        return Arrays.toString(photoTranslate);
+        return strTranslate.toString();
     }
 
     public static void main(String[] args) {
         Translator big = new Translator(new String[]{"world", "hello", "important", "easy"}, new String[]{"мир", "привет", "важно", "легко"});
-        System.out.println(big.translate("world, Molly!, Hello!"));
+        System.out.println(big.translate("Molly!, world, Hello!"));
     }
 }
