@@ -14,7 +14,6 @@ public class Coder {
 
             try (
                     // создаем новый FileWriter
-                    // reader;
                 FileWriter writeResult = new FileWriter(outFileName)) {
                 try {
                     for (int ch; (ch = reader.read())>= 0;){

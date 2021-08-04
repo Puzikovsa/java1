@@ -43,6 +43,6 @@ public class Translator {
 
     public static void main(String[] args) {
         Translator big = new Translator(new String[]{"world", "hello", "important", "easy"}, new String[]{"мир", "привет", "важно", "легко"});
-        System.out.println(big.translate("Molly!, world, Hello!"));
+        System.out.println(big.translate("Molly! Hello! world"));
     }
 }
