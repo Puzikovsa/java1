@@ -28,7 +28,7 @@ public class Censor {
                 }
             System.out.println(str);
             try {
-                FileWriter writer = new FileWriter("src/ru/progwards/java1/lessons/io2/testText.txt");
+                FileWriter writer = new FileWriter(inoutFileName);
                 writer.write(str.toString());
                 writer.close();
             } catch (IOException e) {
