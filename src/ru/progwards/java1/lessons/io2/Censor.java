@@ -34,7 +34,7 @@ public class Censor {
                 writer.close();
                 reader.close();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new CensorExeption(inoutFileName, e.getMessage());
         }
     }
