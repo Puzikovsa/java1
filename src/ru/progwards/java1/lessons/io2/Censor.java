@@ -2,7 +2,6 @@ package ru.progwards.java1.lessons.io2;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Censor {
@@ -60,7 +59,7 @@ public class Censor {
         try {
             censorFile("src/ru/progwards/java1/lessons/io2/testText.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"});
         } catch (CensorException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         }
     }
 }
