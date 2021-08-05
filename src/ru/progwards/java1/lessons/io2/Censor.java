@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Censor {
 
-    public static void censorFile(String inoutFileName, String[] obscene) throws CensorExeption {
+    public static void censorFile(String inoutFileName, String[] obscene) throws CensorException {
         try {
             FileReader reader = new FileReader(inoutFileName);
             Scanner scan = new Scanner(reader);
@@ -35,15 +35,15 @@ public class Censor {
                 reader.close();
             }
         } catch (Exception e) {
-            throw new CensorExeption(inoutFileName, e.getMessage());
+            throw new CensorException(inoutFileName, e.getMessage());
         }
     }
 
-    public static class CensorExeption extends Exception {
+    public static class CensorException extends Exception {
         String fileName;
         String message;
 
-        CensorExeption(String fileName, String message) {
+        CensorException(String fileName, String message) {
             this.fileName = fileName;
             this.message = message;
         }
@@ -59,7 +59,7 @@ public class Censor {
     public static void main(String[] args) {
         try {
             censorFile("src/ru/progwards/java1/lessons/io2/testText.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"});
-        } catch (CensorExeption e) {
+        } catch (CensorException e) {
             System.out.println(e.toString());
         }
     }
