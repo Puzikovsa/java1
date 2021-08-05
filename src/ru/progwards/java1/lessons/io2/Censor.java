@@ -34,8 +34,7 @@ public class Censor {
                 writer.close();
                 reader.close();
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new CensorExeption(inoutFileName, e.getMessage());
         }
     }
@@ -44,7 +43,7 @@ public class Censor {
         String fileName;
         String message;
 
-        CensorExeption(String fileName, String message){
+        CensorExeption(String fileName, String message) {
             this.fileName = fileName;
             this.message = message;
         }
@@ -57,11 +56,10 @@ public class Censor {
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             censorFile("src/ru/progwards/java1/lessons/io2/testText.txt", new String[]{"Java", "Oracle", "Sun", "Microsystems"});
-        }
-        catch (CensorExeption e){
+        } catch (CensorExeption e) {
             System.out.println(e.toString());
         }
     }
