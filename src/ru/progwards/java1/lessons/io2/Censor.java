@@ -1,6 +1,5 @@
 package ru.progwards.java1.lessons.io2;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,28 +11,29 @@ public class Censor {
         try {
             FileReader reader = new FileReader(inoutFileName);
             Scanner scan = new Scanner(reader);
+            StringBuilder strRead = new StringBuilder();
             while (scan.hasNextLine()) {
-                StringBuilder str = new StringBuilder(scan.nextLine());
-                System.out.println(str);
-                for (int i = 0; i < str.length(); i++) {
+                String str = scan.nextLine();
+                strRead.append(str);
+                for (int i = 0; i < strRead.length(); i++) {
                     for (String s : obscene) {
-                        int charOn = str.indexOf(s);
+                        int charOn = strRead.indexOf(s);
                         if (charOn != -1) {
                             String str1 = s;
                             for (int a = 0; a < str1.length(); a++) {
                                 str1 = str1.replace(str1.charAt(a), '*');
                             }
-                            str.replace(charOn, (charOn + s.length()), str1);
+                            strRead.delete(charOn, (charOn + str1.length()));
+                            strRead.insert(charOn, str1);
                         }
-                    }
 
+                    }
                 }
+                FileWriter writer = new FileWriter(inoutFileName);
+                writer.write(strRead.toString());
+                writer.close();
+                reader.close();
             }
-            FileWriter writer = new FileWriter(inoutFileName);
-            System.out.println(str);
-            writer.write(str.toString());
-            writer.close();
-            reader.close();
         }
         catch (IOException e) {
             throw new CensorExeption(inoutFileName, e.getMessage());
