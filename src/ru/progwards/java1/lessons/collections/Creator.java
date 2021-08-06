@@ -23,19 +23,16 @@ public class Creator {
 
     public static ArrayList<Integer> fill3(int n){
         ArrayList<Integer> arrayList3 = new ArrayList<>(n*3);
-        for (int i = 0; i < n*3; i++){
-            String a = String.valueOf(i);
-            String b = String.valueOf(i * i);
-            String c = String.valueOf(i * i * i);
-            String num = a + b + c;
-                int result = Integer.parseInt(num);
-                arrayList3.add(result);
+        for (int i = 0; i < n*3; i  +=3){
+            arrayList3.add(i);
+            arrayList3.add(i*i);
+            arrayList3.add(i*i*i);
         }
         return arrayList3;
     }
 
     public static void main(String[] args) {
-        for (Integer i : fill3(7)) {
+        for (Integer i : fill3(3)) {
             System.out.println(i);
         }
     }
