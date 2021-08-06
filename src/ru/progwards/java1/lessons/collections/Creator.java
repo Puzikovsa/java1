@@ -13,9 +13,16 @@ public class Creator {
         }
         return arrayList1;
     }
+    public static Collection<Integer> fillOdd(int n){
+        ArrayList<Integer> arrayList2 = new ArrayList<>(n);
+        for (int i = n - 1; i >= 0; i--){
+            arrayList2.add(i*2 + 1);
+        }
+        return arrayList2;
+    }
 
     public static void main(String[] args) {
-        for (Integer i : fillEven(5)) {
+        for (Integer i : fillOdd(5)) {
             System.out.println(i);
         }
     }
