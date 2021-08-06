@@ -47,7 +47,6 @@ public class Censor {
             this.message = message;
         }
 
-
         @Override
         public String toString() {
             return fileName + ":" + message;
