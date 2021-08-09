@@ -62,7 +62,7 @@ public class Finder {
         }
         System.out.println(result);
         System.out.println(num);
-        for (int j = 0; j < num.size(); j++){
+        for (int j = num.size() - 1; j > 0; j--){
             int max = num.get(j);
             if (Collections.max(num).equals(max)){
                 res = result.get(j) + ":" + num.get(j);
@@ -82,10 +82,8 @@ public class Finder {
         num.add(24);
         num.add(-24);
         num.add(32);
-        System.out.println(num);
-        System.out.println(findLocalMax(num));
-        System.out.println(findSequence(num));
         List<String> strName = new ArrayList<>();
+        strName.add("Yura");
         strName.add("Yura");
         strName.add("Yura");
         strName.add("Vasya");
@@ -99,8 +97,6 @@ public class Finder {
         strName.add("Olga");
         strName.add("Maxim");
         strName.add("yulia");
-//        System.out.println(num);
-//        System.out.println(findSequence(num));
         System.out.println(strName);
         System.out.println(findSimilar(strName));
     }
