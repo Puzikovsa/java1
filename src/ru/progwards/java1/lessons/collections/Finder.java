@@ -36,11 +36,12 @@ public class Finder {
 
     public static boolean findSequence(Collection<Integer> numbers) {
         boolean res = false;
+        List<Integer> col = new ArrayList<>();
         for (int i = 1; i <= numbers.size(); i++) {
-            if (numbers.contains(i)) {
-                res = true;
-                break;
-            }
+            col.add(i);
+        }
+        if (numbers.containsAll(col)) {
+            res = true;
         }
         return res;
     }
@@ -87,6 +88,7 @@ public class Finder {
         num.add(32);
         System.out.println(num);
         System.out.println(findLocalMax(num));
+        System.out.println(findSequence(num));
         List<String> strName = new ArrayList<>();
         strName.add("Yura");
         strName.add("Yura");
