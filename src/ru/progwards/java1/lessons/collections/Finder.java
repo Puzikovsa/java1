@@ -46,9 +46,34 @@ public class Finder {
         return res;
     }
 
-//    public static String findSimilar(Collection<String> names){
-//
-//    }
+    public static String findSimilar(Collection<String> names) {
+        List<String> name = new ArrayList<>(names);
+        List result = new ArrayList();
+        List<Integer> num = new ArrayList<>();
+        int number = 1;
+        String res = "";
+        for (int i = 0; i < name.size() - 2; i++) {
+            if(name.get(i).equals(name.get(i + 1))){
+                number = number + 1;
+                result.add(name.get(i));
+                num.add(number);
+            } else
+                if (name.get(i + 1).equals(name.get(i + 2))) {
+                    number = 1;
+                    result.add(name.get(i + 2));
+                    num.add(number);
+                } else break;
+        }
+        System.out.println(result);
+        System.out.println(num);
+        for (int j = 0; j < num.size(); j++){
+            int max = num.get(j);
+            if (Collections.max(num).equals(max)){
+                res = result.get(j) + ":" + num.get(j);
+            }
+        }
+        return res;
+    }
 
     public static void main(String[] args) {
         List<Integer> num = new ArrayList();
@@ -59,7 +84,21 @@ public class Finder {
         num.add(34);
         num.add(11);
         num.add(24);
-        System.out.println(num);
-        System.out.println(findSequence(num));
+        List<String> strName = new ArrayList<>();
+        strName.add("Yura");
+        strName.add("Yura");
+        strName.add("Yura");
+        strName.add("Yura");
+        strName.add("Vasya");
+        strName.add("Vasya");
+        strName.add("Olga");
+        strName.add("Olga");
+        strName.add("Olga");
+        strName.add("Maxim");
+        strName.add("yulia");
+//        System.out.println(num);
+//        System.out.println(findSequence(num));
+        System.out.println(strName);
+        System.out.println(findSimilar(strName));
     }
 }
