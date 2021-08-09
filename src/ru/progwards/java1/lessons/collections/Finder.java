@@ -48,21 +48,17 @@ public class Finder {
 
     public static String findSimilar(Collection<String> names) {
         List<String> name = new ArrayList<>(names);
-        List result = new ArrayList();
+        List<String> result = new ArrayList();
         List<Integer> num = new ArrayList<>();
         int number = 1;
         String res = "";
-        for (int i = 0; i < name.size() - 2; i++) {
+        for (int i = 0; i < name.size() - 1; i++) {
             if(name.get(i).equals(name.get(i + 1))){
                 number = number + 1;
                 result.add(name.get(i));
                 num.add(number);
             } else
-                if (name.get(i + 1).equals(name.get(i + 2))) {
-                    number = 1;
-                    result.add(name.get(i + 2));
-                    num.add(number);
-                } else break;
+                number = 1;
         }
         System.out.println(result);
         System.out.println(num);
@@ -92,10 +88,12 @@ public class Finder {
         List<String> strName = new ArrayList<>();
         strName.add("Yura");
         strName.add("Yura");
-        strName.add("Yura");
-        strName.add("Yura");
         strName.add("Vasya");
         strName.add("Vasya");
+        strName.add("Olga");
+        strName.add("Olga");
+        strName.add("Yura");
+        strName.add("Yura");
         strName.add("Olga");
         strName.add("Olga");
         strName.add("Olga");
