@@ -19,7 +19,6 @@ public class Finder {
                     min = i - 1;
             }
         }
-        System.out.println(min);
         indexList.add(min);
         indexList.add(min + 1);
         return indexList;
@@ -28,7 +27,7 @@ public class Finder {
         List<Integer> number = new ArrayList<>(numbers);
         List<Integer> result = new ArrayList<>();
         for (int i = 1; i < number.size() - 1; i++){
-            if(number.get(i - 1) < number.get(i) || number.get(i) > number.get(i + 1)){
+            if(number.get(i - 1) < number.get(i) & number.get(i) > number.get(i + 1)){
                 result.add(number.get(i));
             }
         }
@@ -79,11 +78,15 @@ public class Finder {
         List<Integer> num = new ArrayList();
         num.add(15);
         num.add(18);
-        num.add(1);
+        num.add(-111);
         num.add(11);
         num.add(34);
         num.add(11);
         num.add(24);
+        num.add(-24);
+        num.add(32);
+        System.out.println(num);
+        System.out.println(findLocalMax(num));
         List<String> strName = new ArrayList<>();
         strName.add("Yura");
         strName.add("Yura");
