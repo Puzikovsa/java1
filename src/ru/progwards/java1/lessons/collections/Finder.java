@@ -24,17 +24,42 @@ public class Finder {
         indexList.add(min + 1);
         return indexList;
     }
+    public static Collection<Integer> findLocalMax(Collection<Integer> numbers){
+        List<Integer> number = new ArrayList<>(numbers);
+        List<Integer> result = new ArrayList<>();
+        for (int i = 1; i < number.size() - 1; i++){
+            if(number.get(i - 1) < number.get(i) || number.get(i) > number.get(i + 1)){
+                result.add(number.get(i));
+            }
+        }
+        return result;
+    }
+
+    public static boolean findSequence(Collection<Integer> numbers) {
+        boolean res = false;
+        for (int i = 1; i <= numbers.size(); i++) {
+            if (numbers.contains(i)) {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    }
+
+//    public static String findSimilar(Collection<String> names){
+//
+//    }
 
     public static void main(String[] args) {
         List<Integer> num = new ArrayList();
-        num.add(0);
-        num.add(3);
-        num.add(6);
+        num.add(15);
+        num.add(18);
         num.add(1);
-        num.add(2);
+        num.add(11);
+        num.add(34);
         num.add(11);
         num.add(24);
         System.out.println(num);
-        System.out.println(findMinSumPair(num));
+        System.out.println(findSequence(num));
     }
 }
