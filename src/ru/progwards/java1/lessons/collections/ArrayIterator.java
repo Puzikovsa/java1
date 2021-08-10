@@ -21,8 +21,8 @@ public class ArrayIterator<T> implements Iterator<T> {
     @Override
     public T next() {
         Object T = null;
-        for (int i = 0; i < array.length - 1; i++) {
-            T = array[i + 1];
+        for (int i = 0; i < array.length; i++) {
+            T = array[i];
         }
         return (T) T;
     }
