@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 public class ArrayIterator<T> implements Iterator<T> {
 
-    private T[] array;
+    private final T[] array;
 
     ArrayIterator(T[] array) {
         this.array = array;
@@ -21,8 +21,8 @@ public class ArrayIterator<T> implements Iterator<T> {
     @Override
     public T next() {
         Object T = null;
-        for (int i = 1; i < array.length; i++) {
-            T = array[i - 1];
+        for (T t : array) {
+            T = t;
         }
         return (T) T;
     }
