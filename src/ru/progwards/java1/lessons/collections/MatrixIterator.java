@@ -25,10 +25,10 @@ public class MatrixIterator<T> implements Iterator<T> {
     public T next() {
         T result = array[i][j];
         while (i < array.length - 1) {
-            i++;
             while (j < array[i].length - 1) {
                 j++;
             }
+            i++;
         }
         return result;
     }
