@@ -16,7 +16,7 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        if(array != null && i < array.length && j < array[i].length)
+        if (array != null && i < array.length && j < array[i].length)
             return true;
         return false;
     }
@@ -24,13 +24,12 @@ public class MatrixIterator<T> implements Iterator<T> {
     @Override
     public T next() {
         T result = array[i][j];
-        while (j < array[i].length - 1) {
-            j++;
-
         while (i < array.length - 1) {
             i++;
+            while (j < array[i].length - 1) {
+                j++;
+            }
         }
-    }
         return result;
     }
 }
