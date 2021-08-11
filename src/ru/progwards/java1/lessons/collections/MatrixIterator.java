@@ -31,7 +31,9 @@ public class MatrixIterator<T> implements Iterator<T> {
             }
             j = 0;
             i++;
+            break;
         }
+
         return result;
     }
 }
