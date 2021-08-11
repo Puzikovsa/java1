@@ -13,7 +13,7 @@ public class Finder {
         List<Integer> indexList = new ArrayList<>();
         List<Integer> number = new ArrayList<>(numbers);
         int min = 0;
-        for (int i = 1; i < number.size() - 1; i++) {
+        for (int i = 1; i < number.size(); i++) {
             result.add(number.get(i - 1) + number.get(i));
                 if (Collections.min(result).equals(number.get(i - 1) + number.get(i))) {
                     min = i - 1;
