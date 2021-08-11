@@ -53,13 +53,13 @@ public class Finder {
         int number = 1;
         String res = "";
         for (int i = 0; i < name.size() - 1; i++) {
-            if(name.get(i).equals(name.get(i + 1))){
+            if (name.get(i).equals(name.get(i + 1))) {
                 number = number + 1;
                 result.add(name.get(i));
                 num.add(number);
             } else
                 number = 1;
-        }
+            }
         System.out.println(result);
         System.out.println(num);
         for (int j = num.size() - 1; j > 0; j--){

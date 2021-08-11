@@ -1,13 +1,10 @@
 package ru.progwards.java1.lessons.collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Iterator;
 
 public class ArrayIterator<T> implements Iterator<T> {
 
-    private T[] array;
+    private final T[] array;
     int anInt;
 
     ArrayIterator(T[] array) {
