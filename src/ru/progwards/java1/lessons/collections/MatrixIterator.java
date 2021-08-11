@@ -25,13 +25,15 @@ public class MatrixIterator<T> implements Iterator<T> {
     public T next() {
         T result = null;
         if (j < array[i].length - 1) {
-            result = array[i][j++];
+            result = array[i][j];
+            j++;
         } else {
             if (i < array.length - 1) {
                 i++;
                 j = 0;
                 if (j < array[i].length - 1) {
-                    result = array[i][j++];
+                    result = array[i][j];
+                    j++;
                 }
             }
         }
