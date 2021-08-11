@@ -5,24 +5,26 @@ import java.util.Iterator;
 public class MatrixIterator<T> implements Iterator<T> {
 
     private T[][] array;
-    int element;
     int i;
     int j;
 
     MatrixIterator(T[][] array) {
         this.array = array;
-        element = 0;
+        i = 0;
+        j = 0;
     }
 
     @Override
     public boolean hasNext() {
-        if(array != null && element< array.length && element < array[i].length)
+        if(array != null && i < array.length && j < array[i].length)
             return true;
         return false;
     }
 
     @Override
     public T next() {
-        return array[i++][j++];
+        T result = array[i][j++];
+        i++;
+        return result;
     }
 }
