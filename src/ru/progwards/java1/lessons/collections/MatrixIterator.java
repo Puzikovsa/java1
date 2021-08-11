@@ -23,10 +23,13 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     @Override
     public T next() {
-        while (j < array[i].length - 1){
-            T result = array[i][j++];
+        while (j < array[i].length - 1) {
+            j++;
+
+        while (i < array.length - 1) {
             i++;
         }
+    }
         return array[i][j];
     }
 }
