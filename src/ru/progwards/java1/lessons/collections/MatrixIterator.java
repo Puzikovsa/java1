@@ -6,6 +6,8 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     private T[][] array;
     int element;
+    int i;
+    int j;
 
     MatrixIterator(T[][] array) {
         this.array = array;
@@ -14,13 +16,13 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        if(array != null && element< array.length && element < array[0].length)
+        if(array != null && element< array.length && element < array[i].length)
             return true;
         return false;
     }
 
     @Override
     public T next() {
-        return array[element++][element++];
+        return array[i++][j++];
     }
 }
