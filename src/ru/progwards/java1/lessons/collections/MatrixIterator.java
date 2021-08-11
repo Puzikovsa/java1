@@ -27,7 +27,9 @@ public class MatrixIterator<T> implements Iterator<T> {
         while (i < array.length - 1) {
             while (j < array[i].length - 1) {
                 j++;
+                break;
             }
+            j = 0;
             i++;
         }
         return result;
