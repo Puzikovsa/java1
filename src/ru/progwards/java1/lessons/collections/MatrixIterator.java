@@ -28,6 +28,7 @@ public class MatrixIterator<T> implements Iterator<T> {
     @Override
     public T next() {
         for (int i = 0; i < array.length; i++){
+            pos = cur + i;
             if (pos >= array[i].length)
                 pos = pos - array[i].length;
             else
@@ -46,10 +47,12 @@ public class MatrixIterator<T> implements Iterator<T> {
         String[] array2 = {"Юля", "Саша"};
         String[] array3 = {"Маша", "Дима", "Даша", "Настя"};
         String[][] array4 = {(array1), (array2), (array3)};
-        System.out.println(new MatrixIterator(array4).next());
-        System.out.println(new MatrixIterator(array4).next());
-        System.out.println(new MatrixIterator(array4).next());
-        System.out.println(new MatrixIterator(array4).next());
+        MatrixIterator it = new MatrixIterator(array4);
+        System.out.println(it.next());
+        System.out.println(it.next());
+        System.out.println(it.next());
+        System.out.println(it.next());
+        System.out.println(it.next());
     }
 }
 
