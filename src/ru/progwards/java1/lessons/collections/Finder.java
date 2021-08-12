@@ -62,7 +62,7 @@ public class Finder {
             }
         System.out.println(result);
         System.out.println(num);
-        for (int j = num.size() - 1; j > 0; j--){
+        for (int j = num.size()-1;  j >= 0; j--){
             int max = num.get(j);
             if (Collections.max(num).equals(max)){
                 res = result.get(j) + ":" + num.get(j);
