@@ -59,12 +59,14 @@ public class Finder {
                 num.add(number);
             } else
                 number = 1;
+                result.add(name.get(i));
+                num.add(number);
             }
         System.out.println(result);
         System.out.println(num);
-        for (int j = num.size()-1;  j >= 0; j--){
+        for (int j = num.size() - 1;  j >= 0; j--){
             int max = num.get(j);
-            if (Collections.max(num).equals(max)){
+            if (Collections.max(num).equals(max) || Collections.max(num) == null){
                 res = result.get(j) + ":" + num.get(j);
             }
         }
