@@ -5,39 +5,51 @@ import java.util.Iterator;
 public class MatrixIterator<T> implements Iterator<T> {
 
     private T[][] array;
-    int i;
-    int j;
+    int x;
+    int y;
+    int pos;
+    int cur;
 
     MatrixIterator(T[][] array) {
         this.array = array;
-        i = 0;
-        j = 0;
+        x = 0;
+        y = 0;
+        pos = cur;
+
     }
 
     @Override
     public boolean hasNext() {
-        if (array != null && i < array.length && j < array[i].length)
+        if (array != null && x < array.length && y < array[x].length)
             return true;
         return false;
     }
 
     @Override
     public T next() {
-        T result = null;
-        if (j < array[i].length - 1) {
-            result = array[i][j];
-            j++;
-        } else {
-            if (i < array.length - 1) {
-                i++;
-                j = 0;
-                if (j < array[i].length - 1) {
-                    result = array[i][j];
-                    j++;
-                }
+        for (int i = 0; i < array.length; i++){
+            if (pos >= array[i].length)
+                pos = pos - array[i].length;
+            else
+            {
+                x = i;
+                y = pos % array[i].length;
+                break;
             }
         }
-        return result;
+        cur++;
+        return array[x][y];
+    }
+
+    public static void main(String[] args) {
+        String[] array1 = {"Алексей", "Юрий", "Федор"};
+        String[] array2 = {"Юля", "Саша"};
+        String[] array3 = {"Маша", "Дима", "Даша", "Настя"};
+        String[][] array4 = {(array1), (array2), (array3)};
+        System.out.println(new MatrixIterator(array4).next());
+        System.out.println(new MatrixIterator(array4).next());
+        System.out.println(new MatrixIterator(array4).next());
+        System.out.println(new MatrixIterator(array4).next());
     }
 }
 
