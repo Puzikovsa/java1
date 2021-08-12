@@ -8,6 +8,7 @@ public class MatrixIterator<T> implements Iterator<T> {
     int i;
     int j;
     int cur;
+    int pos;
 
     MatrixIterator(T[][] array) {
         this.array = array;
@@ -15,7 +16,7 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        if (array != null && i < array.length && j < array[i].length)
+        if (array != null && cur < array.length && pos < array[i].length)
             return true;
         return false;
     }
@@ -24,7 +25,7 @@ public class MatrixIterator<T> implements Iterator<T> {
     public T next() {
         int x = 0;
         int y = 0;
-        int pos = cur;
+        pos = cur;
         for (int i = 0; i < array.length; i++) {
             if (pos >= array[i].length)
                 pos = pos - array[i].length;
@@ -34,7 +35,6 @@ public class MatrixIterator<T> implements Iterator<T> {
                 break;
                 }
             }
-
         cur++;
         return array[x][y];
     }
