@@ -5,11 +5,11 @@ import java.util.Iterator;
 public class MatrixIterator<T> implements Iterator<T> {
 
     private T[][] array;
+    int cur;
+    int pos;
     int i;
     int x;
     int y;
-    int cur;
-    int pos;
 
     MatrixIterator(T[][] array) {
         this.array = array;
@@ -24,10 +24,10 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     @Override
     public T next() {
-        int x = 0;
-        int y = 0;
+        x = 0;
+        y = 0;
         pos = cur;
-        for (int i = 0; i < array.length; i++) {
+        for (i = 0; i < array.length; i++) {
             if (pos >= array[i].length)
                 pos = pos - array[i].length;
             else {
@@ -46,6 +46,8 @@ public class MatrixIterator<T> implements Iterator<T> {
         String[] array3 = {"Маша", "Дима", "Даша", "Настя"};
         String[][] array4 = {(array1), (array2), (array3)};
         MatrixIterator it = new MatrixIterator(array4);
+        System.out.println(array4.length);
+        System.out.println(array4[2].length);
         System.out.println(it.next());
         System.out.println(it.next());
         System.out.println(it.next());
