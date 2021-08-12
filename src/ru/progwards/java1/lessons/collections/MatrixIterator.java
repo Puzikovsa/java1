@@ -6,28 +6,27 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     private T[][] array;
     int cur;
-    int pos;
     int i;
-    int x;
-    int y;
+    int arr_size;
 
     MatrixIterator(T[][] array) {
         this.array = array;
+        arr_size = array[cur].length + array[cur].length + array[cur].length;
     }
 
     @Override
     public boolean hasNext() {
-        if (array != null && x < array.length && y < array[i].length)
-            return true;
-        return false;
+        if (cur < arr_size)
+        return true;
+        else return false;
     }
 
     @Override
     public T next() {
-        x = 0;
-        y = 0;
-        pos = cur;
-        for (i = 0; i < array.length; i++) {
+        int x = 0;
+        int y = 0;
+        int pos = cur;
+        for (int i = 0; i < array.length; i++) {
             if (pos >= array[i].length)
                 pos = pos - array[i].length;
             else {
@@ -46,17 +45,25 @@ public class MatrixIterator<T> implements Iterator<T> {
         String[] array3 = {"Маша", "Дима", "Даша", "Настя"};
         String[][] array4 = {(array1), (array2), (array3)};
         MatrixIterator it = new MatrixIterator(array4);
-        System.out.println(array4.length);
-        System.out.println(array4[2].length);
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
+        System.out.println(it.hasNext());
         System.out.println(it.next());
     }
 }

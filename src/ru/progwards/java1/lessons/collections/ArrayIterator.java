@@ -25,6 +25,13 @@ public class ArrayIterator<T> implements Iterator<T> {
     }
 
     public static void main(String[] args) {
+        String[] array3 = {"Маша", "Дима", "Даша", "Настя"};
+        ArrayIterator test = new ArrayIterator(array3);
+        System.out.println(array3.length);
+        System.out.println(test.next());
+        System.out.println(test.next());
+        System.out.println(test.next());
+        System.out.println(test.next());
     }
 }
 
