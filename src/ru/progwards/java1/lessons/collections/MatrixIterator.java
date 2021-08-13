@@ -5,37 +5,40 @@ import java.util.Iterator;
 public class MatrixIterator<T> implements Iterator<T> {
 
     private T[][] array;
-    int cur;
-    int i;
-    int arr_size;
+    int cur = 0;
+    int arr_size = 1;
+
 
     MatrixIterator(T[][] array) {
         this.array = array;
-        arr_size = array[cur].length + array[cur].length + array[cur].length;
     }
 
     @Override
     public boolean hasNext() {
-        if (cur < arr_size)
-        return true;
-        else return false;
+        return cur < arr_size;
     }
 
     @Override
     public T next() {
         int x = 0;
         int y = 0;
+        int arr_size1 = 0;
         int pos = cur;
         for (int i = 0; i < array.length; i++) {
-            if (pos >= array[i].length)
+            arr_size = array[i].length;
+            if (pos >= array[i].length) {
                 pos = pos - array[i].length;
-            else {
+                arr_size1 = array[i + 1].length;
+            } else {
                 x = i;
                 y = pos % array[i].length;
                 break;
-                }
             }
+            
+        }
+        arr_size = arr_size + arr_size1;
         cur++;
+        arr_size++;
         return array[x][y];
     }
 
@@ -45,6 +48,10 @@ public class MatrixIterator<T> implements Iterator<T> {
         String[] array3 = {"Маша", "Дима", "Даша", "Настя"};
         String[][] array4 = {(array1), (array2), (array3)};
         MatrixIterator it = new MatrixIterator(array4);
+        System.out.println(it.hasNext());
+        System.out.println(it.next());
+        System.out.println(it.hasNext());
+        System.out.println(it.next());
         System.out.println(it.hasNext());
         System.out.println(it.next());
         System.out.println(it.hasNext());
