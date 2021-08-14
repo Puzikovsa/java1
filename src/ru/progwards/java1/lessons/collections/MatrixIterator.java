@@ -12,11 +12,17 @@ public class MatrixIterator<T> implements Iterator<T> {
 
     MatrixIterator(T[][] array) {
         this.array = array;
-    }
+        for (int i = 0; i < array.length; i++){
+            for (int j = 0; j < array[i].length; j++){
+                arr_size1 = array[i].length;
+            }
+            arr_size = arr_size + arr_size1;
+            }
+        }
 
     @Override
     public boolean hasNext() {
-        return cur <= arr_size;
+        return cur < arr_size - 1;
     }
 
     @Override
@@ -28,27 +34,20 @@ public class MatrixIterator<T> implements Iterator<T> {
             arr_size1 = array[i].length;
             if (pos >= array[i].length) {
                 pos = pos - array[i].length;
-                arr_size2 = array[i + 1].length;
             } else {
                 x = i;
                 y = pos % array[i].length;
                 break;
             }
         }
-
-        if (cur < arr_size1){
-            arr_size = arr_size1;
-        }
-        else
-            arr_size = arr_size1 + arr_size2;
         cur++;
         return array[x][y];
     }
 
     public static void main(String[] args) {
-        String[] array1 = {"Алексей", "Юрий"};
-        String[] array2 = {"Юля", "Саша", "Vasya"};
-        String[] array3 = {"Маша", "Дима", "John", "маня"};
+        String[] array1 = {"Алексей", "Юрий", "Anna"};
+        String[] array2 = {"Юля", "Саша", "Аня"};
+        String[] array3 = {"Маша", "Дима", "John", "Лена"};
         String[][] array4 = {(array1), (array2), (array3)};
         MatrixIterator it = new MatrixIterator(array4);
         System.out.println(it.hasNext());
