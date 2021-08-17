@@ -53,6 +53,14 @@ public class MatrixIterator<T> implements Iterator<T> {
         System.out.println(it.hasNext());
         System.out.println(it.next());
         System.out.println(it.hasNext());
+        if (it.hasNext()){
+            System.out.println(it.next());
+        }
+        System.out.println("");
+        if (it.hasNext()){
+            System.out.println(it.next());
+        }
+        System.out.println("");
         System.out.println(it.next());
         System.out.println(it.hasNext());
         System.out.println(it.next());
