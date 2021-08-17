@@ -18,7 +18,20 @@ public class SetOperations {
     }
 
     public static Set<Integer> difference(Set<Integer> set1, Set<Integer> set2){
-        return set1;
+        HashSet<Integer> result = new HashSet<>(set1);
+        result.removeAll(set2);
+        return result;
+    }
+
+    public static Set<Integer> symDifference(Set<Integer> set1, Set<Integer> set2){
+        HashSet<Integer> result = new HashSet<>(set1);
+        HashSet<Integer> result1 = new HashSet<>(set2);
+        result.addAll(set2);
+        HashSet<Integer> resultFinal = new HashSet<>(result);
+        result1.retainAll(set1);
+        System.out.println(result1);
+        resultFinal.addAll(result1);
+        return resultFinal;
     }
 
     public static void main(String[] args) {
@@ -26,9 +39,13 @@ public class SetOperations {
         Set<Integer> intSet2 = Set.of(7, 1, 5, 32, -9, -7);
         Set<Integer> unionSet = union(intSet1, intSet2);
         Set<Integer> interSet = intersection(intSet1, intSet2);
+        Set<Integer> difSet = difference(intSet1, intSet2);
+        Set<Integer> sum = symDifference(intSet1, intSet2);
         System.out.println(intSet1);
         System.out.println(intSet2);
         System.out.println(unionSet);
         System.out.println(interSet);
+        System.out.println(difSet);
+        System.out.println(sum);
     }
 }
