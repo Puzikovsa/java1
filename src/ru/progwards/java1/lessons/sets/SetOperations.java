@@ -27,10 +27,11 @@ public class SetOperations {
         HashSet<Integer> result = new HashSet<>(set1);
         HashSet<Integer> result1 = new HashSet<>(set2);
         result.addAll(set2);
-        HashSet<Integer> resultFinal = new HashSet<>(result);
+        HashSet<Integer> result3 = new HashSet<>(result);
         result1.retainAll(set1);
-        System.out.println(result1);
-        resultFinal.addAll(result1);
+        HashSet<Integer> result4 = new HashSet<>(result1);
+        HashSet<Integer> resultFinal = new HashSet<>(result);
+        resultFinal.removeAll(result1);
         return resultFinal;
     }
 
