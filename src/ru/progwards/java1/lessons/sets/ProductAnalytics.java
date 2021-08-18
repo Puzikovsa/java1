@@ -36,30 +36,4 @@ public class ProductAnalytics {
         onlyOneMarketProducts.retainAll(products);
         return onlyOneMarketProducts;
     }
-
-
-    public static class Product {
-        private String code;
-
-        public Product(String code) {
-            this.code = code;
-        }
-
-        public String getCode() {
-            return getCode();
-        }
-    }
-
-    public static class Shop {
-
-        private List<Product> products;
-
-        public Shop(List<Product> products) {
-            this.products = products;
-        }
-
-        public List<Product> getProducts() {
-            return getProducts();
-        }
-    }
 }
