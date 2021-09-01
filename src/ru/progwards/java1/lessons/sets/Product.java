@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.sets;
 
+import java.util.Objects;
+
 public class Product {
         private String code;
 
@@ -13,8 +15,19 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "code='" + code + '\'' +
-                '}';
+        return "'" + code + "'";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if ((this == obj)) return true;
+        if (!(obj instanceof Product)) return false;
+        Product product = (Product) obj;
+        return code.equals(product.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
     }
 }

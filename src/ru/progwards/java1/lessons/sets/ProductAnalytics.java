@@ -13,15 +13,8 @@ public class ProductAnalytics {
 
     public Set<Product> existInAll() {
         Set<Product> allMarketProducts = new HashSet<>(products);
-        for (Product p: allMarketProducts){
-            System.out.println(p.getCode());
-        }
         for (Shop shop: shops) {
-            for (int i = 0; i < shop.getProducts().size(); i++){
-                System.out.println(shop.getProducts().get(i));
-            }
             allMarketProducts.retainAll(shop.getProducts());
-            System.out.println(allMarketProducts.size());
         }
         return allMarketProducts;
     }
@@ -29,7 +22,9 @@ public class ProductAnalytics {
 
     public Set<Product> existAtListInOne() {
         Set<Product> oneMarketProducts = new HashSet<>();
-        oneMarketProducts.addAll(products);
+        for (Shop shop: shops) {
+            oneMarketProducts.addAll(shop.getProducts());
+        }
         return oneMarketProducts;
     }
 
@@ -71,5 +66,6 @@ public class ProductAnalytics {
 
         ProductAnalytics mainObj = new ProductAnalytics(avail_product, shops);
         System.out.println(mainObj.existInAll());
+        System.out.println(mainObj.existAtListInOne());
     }
 }
