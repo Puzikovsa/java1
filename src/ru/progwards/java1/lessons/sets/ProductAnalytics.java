@@ -30,7 +30,11 @@ public class ProductAnalytics {
 
     public Set<Product> notExistInShops() {
         Set<Product> noMarketProducts = new HashSet<>();
-        noMarketProducts.removeAll(products);
+        for (Product product: products)
+        noMarketProducts.addAll(Collections.singleton(product));
+        for (Shop shop: shops) {
+            noMarketProducts.removeAll(shop.getProducts());
+        }
         return noMarketProducts;
     }
 
@@ -65,7 +69,11 @@ public class ProductAnalytics {
         shops.add(shop2);
 
         ProductAnalytics mainObj = new ProductAnalytics(avail_product, shops);
+        System.out.println(avail_product);
+        System.out.println(shop1.getProducts());
+        System.out.println(shop2.getProducts());
         System.out.println(mainObj.existInAll());
         System.out.println(mainObj.existAtListInOne());
+        System.out.println(mainObj.notExistInShops());
     }
 }
