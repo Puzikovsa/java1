@@ -40,7 +40,17 @@ public class ProductAnalytics {
 
     public Set<Product> existOnlyInOne() {
         Set<Product> onlyOneMarketProducts = new HashSet<>();
-        onlyOneMarketProducts.retainAll(products);
+        for (Shop shop: shops) {
+            onlyOneMarketProducts.addAll(shop.getProducts());
+        }
+//        System.out.println(onlyOneMarketProducts);
+//        Set<Product> allMarketProducts1 = new HashSet<>();
+//        for (Shop shop: shops) {
+//            allMarketProducts1.retainAll(shop.getProducts());
+//        }
+//        System.out.println(allMarketProducts1);
+        onlyOneMarketProducts.removeAll(existInAll());
+
         return onlyOneMarketProducts;
     }
 
@@ -75,5 +85,6 @@ public class ProductAnalytics {
         System.out.println(mainObj.existInAll());
         System.out.println(mainObj.existAtListInOne());
         System.out.println(mainObj.notExistInShops());
+        System.out.println(mainObj.existOnlyInOne());
     }
 }
