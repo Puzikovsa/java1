@@ -41,8 +41,7 @@ public class ProductAnalytics {
     public Set<Product> existOnlyInOne() {
         Set<Product> onlyOneMarketProduct = new HashSet<>();
         int counterProduct = 0;
-        for (int i = 0; i < products.size(); i++) {
-            Product prod = products.get(i);
+        for (Product prod : products) {
             for (Shop shop : shops) {
                 if (shop.getProducts().contains(prod)) {
                     counterProduct = counterProduct + 1;
