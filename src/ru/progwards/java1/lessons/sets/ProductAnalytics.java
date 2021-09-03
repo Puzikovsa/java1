@@ -13,7 +13,7 @@ public class ProductAnalytics {
 
     public Set<Product> existInAll() {
         Set<Product> allMarketProducts = new HashSet<>(products);
-        for (Shop shop: shops) {
+        for (Shop shop : shops) {
             allMarketProducts.retainAll(shop.getProducts());
         }
         return allMarketProducts;
@@ -22,7 +22,7 @@ public class ProductAnalytics {
 
     public Set<Product> existAtListInOne() {
         Set<Product> oneMarketProducts = new HashSet<>();
-        for (Shop shop: shops) {
+        for (Shop shop : shops) {
             oneMarketProducts.addAll(shop.getProducts());
         }
         return oneMarketProducts;
@@ -30,22 +30,29 @@ public class ProductAnalytics {
 
     public Set<Product> notExistInShops() {
         Set<Product> noMarketProducts = new HashSet<>();
-        for (Product product: products)
-        noMarketProducts.addAll(Collections.singleton(product));
-        for (Shop shop: shops) {
+        for (Product product : products)
+            noMarketProducts.addAll(Collections.singleton(product));
+        for (Shop shop : shops) {
             noMarketProducts.removeAll(shop.getProducts());
         }
         return noMarketProducts;
     }
 
     public Set<Product> existOnlyInOne() {
-        Set<Product> onlyOneMarketProducts = new HashSet<>();
-        for (Shop shop: shops) {
-            onlyOneMarketProducts.addAll(shop.getProducts());
+        Set<Product> onlyOneMarketProduct = new HashSet<>();
+        int counterProduct = 0;
+        for (int i = 0; i < products.size(); i++) {
+            Product prod = products.get(i);
+            for (Shop shop : shops) {
+                if (shop.getProducts().contains(prod)) {
+                    counterProduct = counterProduct + 1;
+                }
+            }
+            if (counterProduct == 1) {
+                onlyOneMarketProduct.add(prod);
+            }
         }
-        onlyOneMarketProducts.removeAll(existInAll());
-
-        return onlyOneMarketProducts;
+        return onlyOneMarketProduct;
     }
 
     public static void main(String[] args) {
@@ -66,17 +73,23 @@ public class ProductAnalytics {
         pr2.add(new Product("5"));
         pr2.add(new Product("2"));
         pr2.add(new Product("3"));
-        pr2.add(new Product("1"));
         Shop shop2 = new Shop(pr2);
+
+        List<Product> pr3 = new ArrayList<>();
+        pr3.add(new Product("2"));
+        pr3.add(new Product("5"));
+        Shop shop3 = new Shop(pr3);
 
         List<Shop> shops = new ArrayList<>();
         shops.add(shop1);
         shops.add(shop2);
+        shops.add(shop3);
 
         ProductAnalytics mainObj = new ProductAnalytics(avail_product, shops);
         System.out.println(avail_product);
         System.out.println(shop1.getProducts());
         System.out.println(shop2.getProducts());
+        System.out.println(shop3.getProducts());
 //        System.out.println(mainObj.existInAll());
 //        System.out.println(mainObj.existAtListInOne());
 //        System.out.println(mainObj.notExistInShops());
