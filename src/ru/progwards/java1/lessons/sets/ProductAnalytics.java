@@ -40,15 +40,19 @@ public class ProductAnalytics {
 
     public Set<Product> existOnlyInOne() {
         Set<Product> onlyOneMarketProduct = new HashSet<>();
-        int counterProduct = 0;
         for (Product prod : products) {
+            System.out.println(prod);
+            int counterProduct = 0;
             for (Shop shop : shops) {
                 if (shop.getProducts().contains(prod)) {
                     counterProduct = counterProduct + 1;
-                }
+                    System.out.println(counterProduct);
+                    }
             }
             if (counterProduct == 1) {
                 onlyOneMarketProduct.add(prod);
+                counterProduct = 0;
+                System.out.println(counterProduct);
             }
         }
         return onlyOneMarketProduct;
@@ -61,6 +65,9 @@ public class ProductAnalytics {
         avail_product.add(new Product("5"));
         avail_product.add(new Product("8"));
         avail_product.add(new Product("2"));
+        avail_product.add(new Product("9"));
+        avail_product.add(new Product("4"));
+        avail_product.add(new Product("10"));
 
         List<Product> pr1 = new ArrayList<>();
         pr1.add(new Product("1"));
@@ -77,6 +84,8 @@ public class ProductAnalytics {
         List<Product> pr3 = new ArrayList<>();
         pr3.add(new Product("2"));
         pr3.add(new Product("5"));
+        pr3.add(new Product("10"));
+        pr3.add(new Product("4"));
         Shop shop3 = new Shop(pr3);
 
         List<Shop> shops = new ArrayList<>();
@@ -89,9 +98,6 @@ public class ProductAnalytics {
         System.out.println(shop1.getProducts());
         System.out.println(shop2.getProducts());
         System.out.println(shop3.getProducts());
-//        System.out.println(mainObj.existInAll());
-//        System.out.println(mainObj.existAtListInOne());
-//        System.out.println(mainObj.notExistInShops());
         System.out.println(mainObj.existOnlyInOne());
     }
 }
