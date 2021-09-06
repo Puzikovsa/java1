@@ -14,7 +14,8 @@ public class LettersInFile {
     public static String process(String fileName) throws IOException {
         FileReader reader = new FileReader(fileName);
         for (int ch; (ch = reader.read()) >= 0;) {
-            chars.add(Character.toString(ch));;
+            if (Character.isLetter(ch))
+            chars.add(Character.toString(ch));
         }
         String result = chars.toString();
         return result;
