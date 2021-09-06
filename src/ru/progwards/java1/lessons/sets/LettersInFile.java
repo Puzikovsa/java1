@@ -17,7 +17,12 @@ public class LettersInFile {
             if (Character.isLetter(ch))
             chars.add(Character.toString(ch));
         }
-        String result = chars.toString();
+
+        StringBuilder letersResult = new StringBuilder();
+        for (String s: chars){
+            letersResult.append(s);
+        }
+        String result = letersResult.toString();
         return result;
     }
 
