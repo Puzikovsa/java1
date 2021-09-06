@@ -41,18 +41,15 @@ public class ProductAnalytics {
     public Set<Product> existOnlyInOne() {
         Set<Product> onlyOneMarketProduct = new HashSet<>();
         for (Product prod : products) {
-            System.out.println(prod);
             int counterProduct = 0;
             for (Shop shop : shops) {
                 if (shop.getProducts().contains(prod)) {
                     counterProduct = counterProduct + 1;
-                    System.out.println(counterProduct);
                     }
             }
             if (counterProduct == 1) {
                 onlyOneMarketProduct.add(prod);
                 counterProduct = 0;
-                System.out.println(counterProduct);
             }
         }
         return onlyOneMarketProduct;
